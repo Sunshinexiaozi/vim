@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/sun/Android/packages/apps/Settings/src'
+let g:netrw_dirhist_2='/home/sun/Android/packages/apps/Settings/src/com/android'
+let g:netrw_dirhist_3='/home/sun'
+let g:netrw_dirhist_4='/home/sun/Python'
+let g:netrw_dirhist_5='/home/sun/Python/src'
+let g:netrw_dirhist_6='/home/sun/Python/src/Django'
+let g:netrw_dirhist_7='/home/sun/Python/src/Django/mysite'
+let g:netrw_dirhist_8='/home/sun/Python/src/Django/mysite/mysite'
+let g:netrw_dirhist_9='/home/sun'
