@@ -8,6 +8,7 @@ set enc=utf-8
 set tenc=utf-8
 set fenc=utf-8
 set fencs=utf-b,usc-bom
+set helplang=cn
 "编码@end
 "----------------------------------
 
