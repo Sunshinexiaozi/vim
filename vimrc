@@ -33,6 +33,8 @@ set ruler                 "显示标尺，Vim窗口的右下角显示当前光�
 set hlsearch              "高亮匹配搜索
 set incsearch             "输入字符的过程中就显示匹配的搜索
 
+set showcmd               "在屏幕最后一行显示（部分的）命令
+
 filetype plugin indent on "开启文件类型检测 = 
 "filetype on
 "filetype plugin on
