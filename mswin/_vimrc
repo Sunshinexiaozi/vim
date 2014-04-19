@@ -66,7 +66,7 @@ colorscheme desert     "配色方案
 syntax enable          "语法高亮
 syntax on
 
-set guifont=Ubuntu\ Mono:h12
+set guifont=Ubuntu\ Mono:h12  "字体设置
 
 set tabstop=4          "Tab键的宽度
 set shiftwidth=4
