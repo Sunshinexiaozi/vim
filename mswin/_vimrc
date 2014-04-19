@@ -1,0 +1,121 @@
+"配置多语言环境，解决乱码问题
+"编码设置
+"正常的编码设置
+"set enc=tuf-8
+"set tenc=tuf-8
+"set fenc=tuf-8
+"set fencs=tuf-8,usc-bom
+set encoding=utf-8
+set termencoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8,usc-bom,latin1
+
+"if has("win32")
+"  set fileencoding=chinese
+"else
+"  set fileencoding=utf-8
+
+"解决菜单乱码
+"if has("win32)
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
+"解决consle输出乱码
+language messages zh_CN.utf-8
+"endif
+
+"===============================================
+"gvim默认配置
+set nocompatible                          "去掉vi一致性模式
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+behave mswin
+"
+set diffexpr=MyDiff()
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  let eq = ''
+  if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      let cmd = '""' . $VIMRUNTIME . '\diff"'
+      let eq = '"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+  else
+    let cmd = $VIMRUNTIME . '\diff'
+  endif
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+endfunction
+"gvim默认配置//@end
+"===================================================
+
+"=================================================
+"界面配置
+set number             "显示行号
+colorscheme desert     "配色方案
+
+syntax enable          "语法高亮
+syntax on
+
+set guifont=Ubuntu\ Mono:h12
+
+set tabstop=4          "Tab键的宽度
+set shiftwidth=4
+set expandtab          "空格代替tab
+set autoindent         "自动缩进
+set ruler              "显示标尺,Vim 窗口的右下角显示当前光标的位置
+set hlsearch           "高亮匹配搜索
+set incsearch          "输入字符的过程中就显示匹配的搜索
+
+filetype plugin indent on "开启文件类型检测
+"filetype on            "侦测文件类型
+"filetype plugin on     "允许vim加载文件类型插件
+"filetype indent on     "允许vim为不同类型的文件定义不同的缩进格式
+
+"@end
+"==================================================
+
+"===================================================
+"CTags的设定
+set tags=tags;
+set autochdir
+"@end
+"=================================================
+
+"===================================================
+"taglist的设定
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Ctags_Cmd = 'ctags'
+nmap <silent> <F3> :TlistClose<cr>:TagbarToggle<cr>
+
+"tagbar的设定
+nmap <silent> <F4> :TagbarClose<cr>:Tlist<cr>
+let g:tagbar_ctags_bin='ctags'
+let g:tagbar_width=30
+let g:tagbar_left=1
+"@end
+"=================================================
+
+"===================================================
+"WinManager文件浏览组件
+let g:winManagerWindowLayout='TagList|FileExplorer'
+nmap wm :WMToggle<cr>
+"@end
+"=================================================
+
+"===================================================
+"Python代码补全插件
+let g:pydiction_location = 'C:/Program Files/vim/vimfiles/ftplugin/pydiction/complete-dict'
+let g:pydiction_menu_height = 20 "设置弹出菜单的高度，默认是15 
+"@end
+"=================================================
