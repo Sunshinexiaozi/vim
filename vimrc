@@ -9,6 +9,9 @@ set tenc=utf-8
 set fenc=utf-8
 set fencs=utf-b,usc-bom
 set helplang=cn
+
+":%!xxd                   "转储二进制文件，以十六进制形式显示
+":%!xxd -r                "还原
 "编码@end
 "----------------------------------
 
@@ -62,11 +65,18 @@ nmap <silent><F3> :TlistClose<cr>:TagbarToggle<cr>
 let g:winManagerWindowLayout='FileExplorer'         "'TagList|FileExplorer'
 nmap wm :WMToggle<cr>
 "mminibufexpl 多文档编辑
-let g:miniBufExplMapCTabSwitchBufs=1
-let g:miniBufExplMapWindowsNavVim=1
-let g:miniBufExplMapWindowNavArrows=1
+"let g:miniBufExplMapCTabSwitchBufs=1
+"let g:miniBufExplMapWindowsNavVim=1
+"let g:miniBufExplMapWindowNavArrows=1
 "pydiction插件
 let g:pydiction_location = '~/.vim/pydiction/complete-dict'
 let g:pydiction_menu_height = 20 "设置弹出菜单的高度，默认是15
 "----------------------------------
 
+if has("gui_gtk2")
+    set guifont=DejaVu\ Sans\ Mono\ 11
+elseif has("gui_macvim")
+    set guifont=DejaVu_Sans_Mono:h11
+elseif has("gui_win32")
+    set guifont=DejaVu_Sans_Mono:h11
+end
